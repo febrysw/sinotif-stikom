@@ -1,0 +1,27 @@
+query Me {
+  me {
+    ...UserData
+  }
+}
+
+mutation UpdateUser {
+  updateUser(data: { firstname: "Admin", lastname: "Sinotif" }) {
+    ...UserData
+  }
+}
+
+mutation ChangePassword {
+  changePassword(
+    data: { oldPassword: "sinotif3333", newPassword: "sinotif3333" }
+  ) {
+    ...UserData
+  }
+}
+
+fragment UserData on User {
+  id
+  email
+  firstname
+  lastname
+  role
+}

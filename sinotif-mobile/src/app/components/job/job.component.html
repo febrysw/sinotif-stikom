@@ -1,0 +1,41 @@
+<ion-card>
+  <ion-list lines="none">
+    <ion-item color="primary">
+      <ion-label>
+        {{ job?.title }}
+        <p>
+          Admin
+          <ion-chip color="light">
+            {{ job?.status }}
+          </ion-chip>
+        </p>
+      </ion-label>
+      <ion-button slot="end" fill="clear" color="light">
+        <ion-icon name="bookmark"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+    <ion-item color="primary" class="ion-text-wrap">
+      <ion-thumbnail slot="start">
+        <img [src]="'assets/logo.png'" />
+      </ion-thumbnail>
+      <ion-label class="company">
+        STIKOM PGRI Banyuwangi
+        <!-- <p>
+          <ion-text color="medium">
+            {{ job?.location }}
+          </ion-text>
+        </p> -->
+      </ion-label>
+      <!-- <ion-text
+        slot="end"
+        color="light"
+        class="ion-text-end"
+        style="padding-left: 80px"
+      >
+
+        {{ job?.date | date : "d MMMM y" : undefined : "id-ID" }}
+      </ion-text> -->
+    </ion-item>
+  </ion-list>
+</ion-card>

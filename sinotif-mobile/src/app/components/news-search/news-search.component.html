@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Cari Berita</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()"
+        ><ion-icon name="close" slot="end"></ion-icon
+      ></ion-button>
+    </ion-buttons>
+
+    <ion-spinner name="bubbles" *ngIf="showSpinner" slot="end"></ion-spinner>
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-searchbar
+      type="text"
+      [(ngModel)]="queryText"
+      (ionClear)="searchclear()"
+      (ionInput)="cari($event)"
+    >
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+    <ion-item *ngFor="let data of items" (click)="goToLink(data?.slug)">
+      <ion-label>
+        <div [ngStyle]="{ 'font-size': '11px' }" [innerHtml]="data.title"></div>
+        <div [ngStyle]="{ 'font-size': '11px' }">
+          [{{ data.status }}] <ion-icon name="time"></ion-icon>
+          {{ data.date | date : "EEEE, d MMMM y" : undefined : "id-ID" }}
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll
+    (ionInfinite)="doInfinite($event)"
+    *ngIf="page < totalPage"
+  >
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data..."
+    ></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

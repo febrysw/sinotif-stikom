@@ -1,0 +1,7 @@
+{
+  "name": "SINOTIF STIKOM",
+  "type": "angular",
+  "integrations": {
+    "capacitor": {}
+  }
+}

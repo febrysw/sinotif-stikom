@@ -1,0 +1,421 @@
+.example1 {
+  height: 35px;
+  overflow: hidden;
+  position: relative;
+}
+
+.example1 h4 {
+  font-size: 1em;
+  color: #9a0000;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  line-height: 35px;
+  text-align: center;
+  /* Starting position */
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  /* Apply animation to this element */
+  -moz-animation: example1 15s linear infinite;
+  -webkit-animation: example1 15s linear infinite;
+  animation: example1 15s linear infinite;
+}
+
+/* Move it (define the animation) */
+@-moz-keyframes example1 {
+  0% {
+    -moz-transform: translateX(100%);
+  }
+
+  100% {
+    -moz-transform: translateX(-100%);
+  }
+}
+
+@-webkit-keyframes example1 {
+  0% {
+    -webkit-transform: translateX(100%);
+  }
+
+  100% {
+    -webkit-transform: translateX(-100%);
+  }
+}
+
+@keyframes example1 {
+  0% {
+    -moz-transform: translateX(100%);
+    /* Firefox bug fix */
+    -webkit-transform: translateX(100%);
+    /* Firefox bug fix */
+    transform: translateX(100%);
+  }
+
+  100% {
+    -moz-transform: translateX(-100%);
+    /* Firefox bug fix */
+    -webkit-transform: translateX(-100%);
+    /* Firefox bug fix */
+    transform: translateX(-100%);
+  }
+}
+
+#menus {
+  // position: absolute;
+  left: 0;
+  // padding-top: 26px;
+  width: 100%;
+
+  .ion-card-item {
+    border-radius: 10px;
+    // box-shadow: 0px 2px 10px 2px rgba(169, 6, 6, 0.1);
+  }
+
+  .menus {
+    min-width: 65px;
+  }
+
+  .card-content-md {
+    padding: 0px !important;
+  }
+}
+
+// ion-header {
+//   position: absolute;
+
+//   ion-toolbar {
+//     padding-left: 14px;
+//     padding-right: 14px;
+
+//     ion-title {
+//       --color: white;
+//       font-size: 18px;
+//       // text-align: center;
+//     }
+//   }
+// }
+
+.default-left-padding {
+  padding-left: 10px;
+}
+
+.default-top-padding {
+  padding-top: 6px !important;
+}
+
+ion-content {
+  .banner {
+    position: relative;
+
+    img {
+      width: 100%;
+    }
+
+    .caption {
+      position: absolute;
+      width: 100%;
+      bottom: 75px;
+      font-size: 26px;
+      color: white;
+      padding-left: 26px;
+      padding-right: 26px;
+
+      .desc {
+        font-size: 20px;
+      }
+    }
+
+    .search {
+      position: absolute;
+      // bottom: -40px;
+      width: calc(100% - 52px);
+      background: white;
+      margin: 16px 26px 16px 26px;
+      padding: 5px 16px 5px 16px;
+      border-radius: 10px;
+      box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.16);
+
+      ion-item {
+        --inner-padding-end: 0 !important;
+
+        ion-input {
+          --placeholder-color: #212121 !important;
+          --placeholder-opacity: 0.5;
+          --color: #21212150 !important;
+        }
+
+        ion-icon {
+          color: #21212150 !important;
+          margin-right: 10px;
+        }
+
+        ion-button {
+          height: 35px;
+          margin-right: 0 !important;
+          --box-shadow: none;
+
+          img {
+            transform: rotateZ(90deg);
+          }
+        }
+      }
+    }
+  }
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 21px 26px 8px 26px;
+
+    h2 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: bold;
+      color: #364f6b;
+    }
+
+    p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--ion-color-primary);
+    }
+  }
+
+  .event-slider {
+    ion-slide {
+      width: 60%;
+      margin-right: 30px;
+
+      ion-col {
+        padding-left: 0;
+
+        ion-card {
+          width: 100%;
+          border-radius: 10px;
+          // box-shadow: 0px 2px 10px 2px rgba(169, 6, 6, 0.1);
+          margin-left: 0;
+          margin-top: 1;
+
+          ion-card-header {
+            img {
+              width: 100%;
+              // margin-left: auto;
+              // margin-right: auto;
+              // display: block;
+              // margin-top: 15px;
+            }
+          }
+
+          ion-card-content {
+            padding-top: 13px;
+
+            .date {
+              // color: #364f6b;
+              // font-size: 10px;
+              margin-bottom: 5px;
+            }
+
+            .eventname {
+              // color: #364f6b;
+              // font-size: 14px;
+              font-weight: bold;
+              margin-bottom: 5px;
+            }
+
+            .location {
+              display: flex;
+              align-items: center;
+              color: var(--ion-color-primary);
+              font-size: 10px;
+              margin-bottom: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .live-event {
+    border-radius: 10px;
+    box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.16);
+    margin: 0 16px 16px 16px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--ion-color-primary);
+    padding: 5px;
+
+    img {
+      border-radius: 10px 0 0 10px;
+      object-fit: cover;
+      width: 35%;
+    }
+
+    .info {
+      padding: 10px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .content {
+        h6 {
+          color: #364f6b;
+          font-size: 14px;
+          font-weight: bold;
+          margin-bottom: 5px;
+          margin-top: 0px;
+        }
+
+        .location {
+          display: flex;
+          align-items: center;
+          color: var(--ion-color-primary);
+          font-size: 10px;
+          margin-bottom: 5px;
+          margin-top: 0;
+        }
+
+        .stats {
+          display: flex;
+          margin-bottom: 5px;
+          margin-top: 0;
+
+          span {
+            display: flex;
+            align-items: center;
+            color: #364f6b80;
+            font-size: 10px;
+            margin-right: 10px;
+          }
+        }
+      }
+
+      .indicator {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        div {
+          background: #ffe6e6;
+          border-radius: 12px;
+          padding: 15px;
+          color: var(--ion-color-primary);
+        }
+      }
+    }
+  }
+}
+
+.swiper {
+  width: 100%;
+  height: auto;
+}
+
+.myhead {
+  // background: linear-gradient(to bottom, #9a0000, #dc0000);
+  padding: 15px;
+  // padding-bottom: 0px;
+  // height: 200px;
+}
+
+.myhead .swiper .swiper-slide {
+  // height: 200px;
+  // line-height: 200px;
+}
+
+ion-header {
+  ion-toolbar {
+    --padding-start: 1.5vh;
+    --padding-end: 1.5vh;
+    ion-title {
+      img {
+        height: 6vh;
+        width: 6vh;
+      }
+    }
+    ion-buttons {
+      ion-thumbnail {
+        background-color: #fff;
+        --border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        ion-icon {
+          font-size: 1.5rem;
+        }
+        img {
+          width: 80%;
+          height: 80%;
+        }
+      }
+    }
+  }
+}
+
+ion-list {
+  background: transparent;
+  ion-list-header {
+    padding-right: 1vh;
+    ion-label {
+      font-size: 1.1rem;
+    }
+    ion-button {
+      ion-text {
+        font-size: 0.7rem;
+      }
+    }
+  }
+
+  ion-thumbnail {
+    height: 4vh;
+    width: 4vh;
+    background-color: var(--ion-color-dark);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      height: 70%;
+      width: 70%;
+    }
+  }
+  ion-label.recent {
+    font-size: 0.95rem;
+    font-weight: bold;
+    p {
+      margin-top: 5px;
+      font-size: 0.65rem;
+      font-weight: 600;
+    }
+  }
+
+  ion-text[slot="end"] {
+    font-size: 0.65rem;
+    font-weight: 500;
+    align-self: end;
+    margin-bottom: 0.8vh;
+  }
+}
+
+ion-list.recentJobs {
+  ion-item {
+    margin-left: 1.5vh;
+    margin-right: 1.5vh;
+    border-radius: 10px;
+    ion-label {
+      margin-top: 1.5vh;
+      margin-bottom: 1.5vh;
+    }
+  }
+}
+
+span.dot {
+  margin: 0 2px 2px 2px;
+  height: 3px;
+  width: 3px;
+  background-color: dimgray;
+  border-radius: 50%;
+  display: inline-block;
+}

@@ -1,0 +1,15 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="light" class="ion-padding-vertical">
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-thumbnail color="primary">
+          <ion-icon name="apps-outline"></ion-icon>
+        </ion-thumbnail>
+      </ion-menu-toggle>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+  <app-empty *ngIf="!responseData" [model]="model"></app-empty>
+</ion-content>

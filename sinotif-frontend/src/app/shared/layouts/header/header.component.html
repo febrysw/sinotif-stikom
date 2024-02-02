@@ -1,0 +1,23 @@
+<header class="app-header">
+  <div class="container flex items-center justify-between">
+    <h4 class="font-bold text-xl">Sinotif STIKOM</h4>
+    <div class="flex gap-3">
+      @if (this.isAuthenticated$| async) {
+      <div class="px-2 font-medium cursor-pointer" (click)="onMenu('/banner')">
+        Banner
+      </div>
+      <div class="px-2 font-medium cursor-pointer" (click)="onMenu('/news')">
+        Berita
+      </div>
+      <div class="px-2 font-medium cursor-pointer" (click)="onMenu('/todo')">
+        Notifikasi
+      </div>
+      <div class="px-2 font-medium cursor-pointer" (click)="onLogout()">
+        Logout
+      </div>
+      }@else {
+      <div class="px-2 font-medium cursor-pointer">Login</div>
+      }
+    </div>
+  </div>
+</header>

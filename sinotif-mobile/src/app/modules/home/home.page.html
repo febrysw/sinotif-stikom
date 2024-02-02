@@ -1,0 +1,109 @@
+<ion-content [fullscreen]="true" color="light">
+  <ion-header class="ion-no-border">
+    <ion-toolbar color="light" class="ion-padding-vertical">
+      <!-- <ion-buttons slot="start">
+        <ion-menu-button color="primary"></ion-menu-button>
+      </ion-buttons> -->
+
+      <!-- <ion-title mode="ios">
+        <img [src]="'assets/logo.png'" />
+      </ion-title> -->
+
+      <ion-buttons slot="start">
+        <ion-menu-toggle>
+          <ion-thumbnail color="primary">
+            <ion-icon name="apps-outline"></ion-icon>
+          </ion-thumbnail>
+        </ion-menu-toggle>
+      </ion-buttons>
+
+      <!-- <ion-title>Home</ion-title> -->
+      <!-- <ion-buttons slot="end">
+        <ion-button (click)="goToNotif()">
+          <ion-icon name="notifications" color="primary"></ion-icon>
+          <ion-badge color="warning">4</ion-badge>
+        </ion-button>
+      </ion-buttons> -->
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="myhead">
+    <swiper-container
+      [modules]="swiperModules"
+      [pagination]="{'clickable': true}"
+      [effect]="'flip'"
+    >
+      <swiper-slide *ngFor="let slide of slides" lazy="true">
+        <img [src]="slide?.image" loading="lazy" />
+      </swiper-slide>
+    </swiper-container>
+  </div>
+  <!--
+  <div class="animate__animated animate__bounce animate__infinite">
+    <div class="search">
+      <div class="example1">
+        <h4>{{ runningText }}</h4>
+      </div>
+    </div>
+  </div> -->
+
+  <div id="latest">
+    <ion-list>
+      <ion-list-header>
+        <ion-label> Berita Terbaru </ion-label>
+        <ion-button
+          fill="clear"
+          size="small"
+          color="medium"
+          (click)="openSearch()"
+        >
+          <ion-text> Lihat Semua </ion-text>
+        </ion-button>
+      </ion-list-header>
+    </ion-list>
+
+    <!-- <div class="live-event" *ngFor="let n of recent" (click)="goToLink(n.slug)">
+      <img [src]="n.images" />
+
+      <div class="info ion-text-wrap">
+        <ion-text [color]="n.colorhtml">
+          <div
+            class="ion-text-wrap"
+            [innerHtml]="n.datahtml"
+            [ngStyle]="{'font-size': n.fonthtml}"
+          ></div>
+        </ion-text>
+      </div>
+    </div> -->
+    <ion-list lines="none" class="ion-margin-bottom recentJobs">
+      <ion-item
+        *ngFor="let data of news"
+        class="ion-margin-bottom"
+        (click)="goToLink(data?.slug)"
+      >
+        <!-- [routerLink]="['/app', 'tabs', 'home', data.id]" -->
+        <ion-thumbnail
+          slot="start"
+          style="
+            background-color: var(--ion-color-primary);
+            height: 100%;
+            width: 100%;
+          "
+        >
+          <img [src]="data?.image" />
+        </ion-thumbnail>
+        <ion-label class="recent" style="font-size: 11px">
+          {{data?.title}}
+          <p>
+            Admin
+            <span class="dot"></span>
+            {{data?.status}}
+          </p>
+        </ion-label>
+        <ion-text slot="end" color="dark">
+          {{ data?.date | date: 'EEEE, d MMMM y' : undefined : 'id-ID' }}
+        </ion-text>
+      </ion-item></ion-list
+    >
+  </div>
+</ion-content>

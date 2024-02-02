@@ -1,0 +1,18 @@
+<ion-grid>
+  <ion-row>
+    <ion-col class="ion-text-center" size="12">
+      <ion-icon
+        [name]="model?.icon ? model?.icon : 'ban-outline'"
+        [color]="model?.color ? model.color : 'simple-1'"
+      ></ion-icon>
+    </ion-col>
+    <ion-col class="ion-text-center" size="12">
+      <ion-label>
+        {{ model?.title ? model.title : "Under Maintenance" }}
+      </ion-label>
+      <ion-text *ngIf="model?.subTitle">
+        <p>{{ model.subTitle }}</p>
+      </ion-text>
+    </ion-col>
+  </ion-row>
+</ion-grid>

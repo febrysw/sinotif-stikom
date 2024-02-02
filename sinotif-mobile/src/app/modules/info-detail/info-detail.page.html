@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        [defaultHref]="defaultHref"
+        color="light"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Informasi Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img alt="no-image" [src]="images" *ngIf="images" />
+    <ion-card-header>
+      <ion-card-title>{{notifs.notification?.title}}</ion-card-title>
+
+      <ion-card-subtitle
+        >{{notifs.date | date: 'EEEE, d MMMM y' : undefined : 'id-ID'}}
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{notifs.notification?.body}}
+
+      <div style="float: right; padding: 5px">
+        <!-- <ion-fab (click)="share()">
+          <ion-fab-button size="small" color="primary" (click)="share()">
+            <ion-icon name="share-social-outline"></ion-icon>
+          </ion-fab-button>
+        </ion-fab> -->
+
+        <!-- <ion-fab vertical="center" horizontal="end" (click)="share()"> -->
+        <ion-fab-button size="small" color="primary" (click)="share()">
+          <ion-icon name="share-social-outline"></ion-icon>
+        </ion-fab-button>
+        <!-- </ion-fab> -->
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

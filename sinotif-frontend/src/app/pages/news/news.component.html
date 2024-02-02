@@ -1,0 +1,197 @@
+<div class="flex flex-col">
+  <div class="flex justify-between items-center">
+    <h2 class="font-bold text-xl"></h2>
+    <button
+      class="btn btn-icon btn-rounded btn-primary"
+      (click)="openSlidePanel()"
+    >
+      <i class="ri-add-line ri-lg"></i>
+      Add Berita
+    </button>
+  </div>
+
+  <div class="mt-4 inline-flex gap-2">
+    <button
+      class="btn btn-sm btn-outline-primary"
+      [class]="{ 'btn-primary': filterByStatus === '' }"
+      (click)="onFilterByStatus('')"
+    >
+      ALL
+    </button>
+    <button
+      class="btn btn-sm btn-outline-primary"
+      [class]="{ 'btn-primary': filterByStatus === 'Published' }"
+      (click)="onFilterByStatus('Published')"
+    >
+      Published
+    </button>
+    <button
+      class="btn btn-sm btn-outline-primary"
+      [class]="{ 'btn-primary': filterByStatus === 'Archived' }"
+      (click)="onFilterByStatus('Archived')"
+    >
+      Archived
+    </button>
+  </div>
+
+  <div class="mt-3 bg-white shadow">
+    @for (item of news; track $index) {
+    <app-news-card
+      [type]="item.status"
+      [news]="item"
+      (click)="onLoadNewsForm(item)"
+    ></app-news-card>
+    }
+  </div>
+</div>
+
+<app-slide-panel
+  [headerText]="'Berita Form'"
+  [isOpen]="isSlidePanelOpen"
+  (onClose)="onCloseSlidePanel()"
+>
+  <form
+    [formGroup]="newsForm"
+    (ngSubmit)="onSubmit()"
+    autocomplete="off"
+    novalidate
+  >
+    <div class="form-group mb-3">
+      <label for="date" class="form-label">Date</label>
+      <input
+        type="date"
+        id="date"
+        class="form-control"
+        [class]="{
+          invalid:
+            newsForm.get('date')?.hasError('required') &&
+            newsForm.get('date')?.touched,
+          valid: newsForm.get('date')?.valid
+        }"
+        placeholder="Date"
+        formControlName="date"
+      />
+      @if (newsForm.get('date')?.hasError('required') &&
+      newsForm.get('date')?.touched) {
+      <span class="form-error">Date is required.</span>
+      }
+    </div>
+    <div class="form-group mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        type="text"
+        id="title"
+        class="form-control"
+        [class]="{
+          invalid:
+            newsForm.get('title')?.hasError('required') &&
+            newsForm.get('title')?.touched,
+          valid: newsForm.get('title')?.valid
+        }"
+        placeholder="Title"
+        formControlName="title"
+      />
+      @if (newsForm.get('title')?.hasError('required') &&
+      newsForm.get('title')?.touched) {
+      <span class="form-error">Title is required.</span>
+      }
+    </div>
+    <div class="form-group mb-3">
+      <label for="body" class="form-label">Body</label>
+
+      <textarea
+        name=""
+        rows="4"
+        class="form-control"
+        [class]="{
+          invalid:
+            newsForm.get('body')?.hasError('required') &&
+            newsForm.get('body')?.touched,
+          valid: newsForm.get('body')?.valid
+        }"
+        placeholder="Body"
+        formControlName="body"
+      ></textarea>
+      @if (newsForm.get('body')?.hasError('required') &&
+      newsForm.get('body')?.touched) {
+      <span class="form-error">Body is required.</span>
+      }
+    </div>
+    <div class="form-group mb-3">
+      <label for="image" class="form-label">Image URL</label>
+      <input
+        type="text"
+        id="image"
+        class="form-control"
+        [class]="{
+          invalid:
+            newsForm.get('image')?.hasError('required') &&
+            newsForm.get('image')?.touched,
+          valid: newsForm.get('image')?.valid
+        }"
+        placeholder="Image URL"
+        formControlName="image"
+      />
+      @if (newsForm.get('image')?.hasError('required') &&
+      newsForm.get('image')?.touched) {
+      <span class="form-error">Image URL is required.</span>
+      }
+    </div>
+    <div class="form-group mb-3">
+      <label for="image" class="form-label">Slug</label>
+      <input
+        type="text"
+        id="slug"
+        class="form-control"
+        [class]="{
+          invalid:
+            newsForm.get('slug')?.hasError('required') &&
+            newsForm.get('slug')?.touched,
+          valid: newsForm.get('slug')?.valid
+        }"
+        placeholder="Slug"
+        formControlName="slug"
+      />
+      @if (newsForm.get('slug')?.hasError('required') &&
+      newsForm.get('slug')?.touched) {
+      <span class="form-error">Slug is required.</span>
+      }
+    </div>
+    <div class="form-group mb-3">
+      <label for="status" class="form-label">Status</label>
+      <select
+        class="form-select"
+        [class]="{
+          invalid:
+            newsForm.get('status')?.hasError('required') &&
+            newsForm.get('status')?.touched,
+          valid: newsForm.get('status')?.valid
+        }"
+        formControlName="status"
+      >
+        @for (item of todoStatus; track $index) {
+        <option [value]="item">{{ item }}</option>
+        }
+      </select>
+      @if (newsForm.get('status')?.hasError('required') &&
+      newsForm.get('status')?.touched) {
+      <span class="form-error">status is required.</span>
+      }
+    </div>
+    <div class="flex gap-2">
+      <button type="submit" class="btn btn-success">Submit</button>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="onCloseSlidePanel()"
+      >
+        Cancel
+      </button>
+      @if(newsId){
+      <button type="button" class="btn btn-danger" (click)="onDeleteNews()">
+        Delete
+      </button>
+      }
+    </div>
+  </form>
+</app-slide-panel>

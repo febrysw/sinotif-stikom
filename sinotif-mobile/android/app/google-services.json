@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "499573995500",
+    "project_id": "stikombanyuwangiapp-sim",
+    "storage_bucket": "stikombanyuwangiapp-sim.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499573995500:android:4f767058232394728e32c9",
+        "android_client_info": {
+          "package_name": "id.ac.stikombanyuwangi.sim"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy0zw0E9iA3yR9cXdj-EJdG-qR8G4Vrzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

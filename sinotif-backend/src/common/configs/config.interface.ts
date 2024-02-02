@@ -1,0 +1,51 @@
+export interface Config {
+  nest: NestConfig;
+  cors: CorsConfig;
+  swagger: SwaggerConfig;
+  graphql: GraphqlConfig;
+  security: SecurityConfig;
+  // firebase: FirebaseConfig;
+}
+
+export interface NestConfig {
+  port: number;
+}
+
+export interface CorsConfig {
+  enabled: boolean;
+}
+
+export interface SwaggerConfig {
+  enabled: boolean;
+  title: string;
+  description: string;
+  version: string;
+  path: string;
+}
+
+export interface GraphqlConfig {
+  playgroundEnabled: boolean;
+  debug: boolean;
+  schemaDestination: string;
+  sortSchema: boolean;
+}
+
+export interface SecurityConfig {
+  expiresIn: string;
+  refreshIn: string;
+  bcryptSaltOrRound: string | number;
+}
+
+// export interface FirebaseConfig {
+//   type: string;
+//   project_id: string;
+//   private_key_id: string;
+//   private_key: string;
+//   client_email: string;
+//   client_id: string;
+//   auth_uri: string;
+//   token_uri: string;
+//   auth_provider_x509_cert_url: string;
+//   client_x509_cert_url: string;
+//   universe_domain: string;
+// }
